@@ -67,6 +67,7 @@ var apos = require('apostrophe')({
     //custom widget
     'two-column-block-widgets': {},
     'two-column-block-70-30-widgets': {},
-    'recrutement': {}
+    'recrutement-widgets': {},
+    'progress-widgets': {}
   }
 });

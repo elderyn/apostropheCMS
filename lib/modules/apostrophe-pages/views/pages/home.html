@@ -160,9 +160,10 @@
         </div>
       </div>
       <div class="rightZone">
-        {{ apos.area(data.page, 'Recrutement', {
+        {{ apos.area(data.page, 'siderbarZone', {
           widgets: {
-            'recrutement': {}
+            'recrutement': {},
+            'progress': {}
           }
         }) }}
       </div>
@@ -174,6 +175,16 @@
     <footer class="mainFooter">
       <div class="container">
         <p class="copyright">&copy; 2018, Increasing Guilde, All right reserved</p>
+
+        <ul class="socialNetwork">
+          <li><a href="https://www.facebook.com/Increasingguilde/" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+        </ul>
       </div>  
     </footer>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="/js/script.js"></script>
 {% endblock %}

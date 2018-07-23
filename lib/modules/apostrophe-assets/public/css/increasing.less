@@ -75,6 +75,12 @@ header.mainHeader {
     text-transform: uppercase;
     text-decoration: none;
     outline: none;
+    font-size: 0.6rem;
+  }
+  .login-link:hover {
+    background: rgba(26,26,26,0.6);
+    padding: 10px 20px 10px;
+    top: 0;
   }
   .container {
     display: flex;
@@ -207,6 +213,100 @@ main .mainZone {
     }
   }
 }
+
+//** Widgets ** //
+
+.widget {
+  background: #4E5D6C;
+  padding: 10px;
+  margin-bottom: 20px;
+  h2 {
+    color: #3399cc;
+  }
+}
+
+//Recrutement widget
+
+.recrutement-widget {
+  .recrutementBlock {
+    display: flex;
+    margin-bottom: 10px;
+    border-bottom: 2px solid rgba(235,235,235,0.2);
+    border-top: 2px solid rgba(235,235,235,0.2);
+    background-color: #000;
+    text-transform: capitalize;
+    figure {
+      width: 40px;
+      height: 40px;
+      margin: 4px 20px 4px 4px;
+      img {
+        width: 100%;
+      }
+    }
+    .recrutementClassTitle {
+      width: 50%;
+      margin-top: 30px;
+    }
+    .recrutementClassPriority {
+      width: 26%;
+      margin: 14px 10px 0 0;
+      text-align: right;
+    }
+  }
+}
+
+  .dh { color: #A330C9; }
+  .dk { color: #C41F3B; }
+  .druid { color: #FF7D0A; }
+  .hunter { color: #ABD473; }
+  .mage { color: #69CCF0; }
+  .monk { color: #00FF96; }
+  .paladin { color: #F58CBA; }
+  .priest { color: #FFFFFF; }
+  .rogue { color: #FFF569; }
+  .shaman { color: #0070DE; }
+  .warlock { color: #9482C9; } 
+  .warrior { color: #C79C6E; }
+
+  .close { color: #ff0000;}
+  .hight{ color: #ff4202;}
+  .medium{ color: #ffd320;}
+  .low { color: #1ef1a2;}
+.progress-widget {
+  .progressHeader {
+    display: flex;
+    margin-bottom: 10px;
+    color: rgba(235,235,235,0.6);
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 4px;
+    p {
+      width: 50%;
+    }
+    .progressNumber {
+      text-align: right;
+    }
+  }
+  .progressBossZone {
+    border-bottom: 1px solid rgba(235,235,235,0.2);
+    display: flex;
+    padding: 2px;
+    .progressBossName {
+      width: 70%;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .nodown{
+      color: rgba(255, 0, 0, 0.8);
+    }
+    .down {
+      color: rgba(13, 210, 13, 0.8);
+    }
+    .nodown, .down {
+      text-align: right;
+      width: 30%;
+    }
+  }
+}
 //blog Zone
 main.blogPost, main.reglementZone {
   .leftZone {
@@ -244,8 +344,19 @@ footer.mainFooter {
   -webkit-box-shadow: 0px -4px 5px 0px rgba(51,51,51,0.68);
   -moz-box-shadow: 0px -4px 5px 0px rgba(51,51,51,0.68);
   border-top: 1px solid rgba(235,235,235,0.2);
-  p.copyright {
-    position: relative;
-    top: 26px;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    p.copyright {
+      position: relative;
+      top: 26px;
+    }
+    a {
+      color: rgba(235,235,235,0.5);
+    }
+    .socialNetwork {
+      position: relative;
+      top: 26px;
+    }
   }
 }
