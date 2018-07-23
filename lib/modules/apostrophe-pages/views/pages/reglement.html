@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block beforeMain %}
+  <header id="header" class="mainHeader">
+    <div class="container">
+      <div class="headerTop">
+        {% if not data.user %}
+          <a class="login-link" href="/login">Login</a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="container">
+      <div class="logoZone">
+        <div class="logo">
+          {{ apos.singleton(data.page, 'headerLogo', 'apostrophe-images', {
+            size: 'full',
+            limit: 1,
+            addLabel: 'Set the logo',
+            editLabel: 'Change the logo',
+            controls: {
+              movable: false,
+              removable: false
+            }
+          }) }}
+        </div>
+      </div>
+
+      <nav>
+        <ul class="tabs">
+              <li><a href="{{ data.home._url }}">{{ data.home.title }}</a></li>
+            {% for tab in data.home._children %}
+              <li class="
+                {% if data.page and
+                  (apos.pages.isAncestorOf(tab, data.page) or tab._id == data.page._id)
+                %}
+                  current
+                {% endif %}
+              "><a href="{{ tab._url }}">{{ tab.title }}</a></li>
+            {% endfor %}
+          </ul>
+      </nav>
+      
+    </div>
+  </header><!-- /header -->
+{% endblock %}
+
+{% block main %}
+  <main class="reglementZone">
+    <div class="container mainZone">
+      <div class="leftZone">
+        <div class="reglementTitle">
+          <h1>{{ data.page.title }}</h1>
+        </div>
+        <div class="reglementContent">
+          {{ apos.area(data.page, 'reglementContent', {
+            widgets: {
+              'apostrophe-rich-text': {
+                toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Heading', element: 'h3' },
+                  { name: 'Subheading', element: 'h4' },
+                  { name: 'Paragraph', element: 'p' }
+                ]
+              }
+            }
+          }) }}
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block afterMain %}
+    <footer class="mainFooter">
+      <div class="container">
+        <p class="copyright">&copy; 2018, Increasing Guilde, All right reserved</p>
+      </div>  
+    </footer>
+{% endblock %}
+

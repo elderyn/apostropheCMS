@@ -1,0 +1,179 @@
+{#
+  This is an example home page template. It inherits and extends a layout template
+  that lives in the top-level views/ folder for convenience
+#}
+
+{% extends "layout.html" %}
+
+{% block title %}Increasing Guild Homepage{% endblock %}
+
+{% block beforeMain %}
+  <header id="header" class="mainHeader">
+    <div class="container">
+      <div class="headerTop">
+        {% if not data.user %}
+          <a class="login-link" href="/login">Login</a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="container">
+      <div class="logoZone">
+        <div class="logo">
+          {{ apos.singleton(data.page, 'headerLogo', 'apostrophe-images', {
+            size: 'full',
+            limit: 1,
+            addLabel: 'Set the logo',
+            editLabel: 'Change the logo',
+            controls: {
+              movable: false,
+              removable: false
+            }
+          }) }}
+        </div>
+      </div>
+
+      <nav>
+        <ul class="tabs">
+              <li><a href="{{ data.home._url }}">{{ data.home.title }}</a></li>
+            {% for tab in data.home._children %}
+              <li class="
+                {% if data.page and
+                  (apos.pages.isAncestorOf(tab, data.page) or tab._id == data.page._id)
+                %}
+                  current
+                {% endif %}
+              "><a href="{{ tab._url }}">{{ tab.title }}</a></li>
+            {% endfor %}
+          </ul>
+      </nav>
+      
+    </div>
+  </header><!-- /header -->
+{% endblock %}
+
+{% block main %}
+  <main>
+    <div class="container mainZone">
+      <div class="leftZone">
+
+        <div class="mainSlider">
+          {{ apos.singleton(data.page, 'mainSlider', 'apostrophe-images', {
+            size: 'full',
+            addLabel: 'add slider or change it',
+            editLabel: 'Change slider'
+          }) }}
+        </div>
+        <div class="lastNewsZone">
+        {{ apos.singleton(data.page, 'blogPreview', 'apostrophe-blog') }}
+          <ul>
+            <li class="lastNewsItem">
+              <article>
+                <figure>
+                  {{ apos.singleton(data.page, 'newsImage1', 'apostrophe-images') }}
+                </figure>
+                <div class="newsContentZone">
+                  <h2 class="newsTitle">News numero 1</h2>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen ...</p>
+
+                  <div class="newsAbout">
+                    <span class="newsDate">20 Juillet 2018</span> at <span class="newsHour">17h42 </span> by <span class="newsAuthor">Admin</span>
+                  </div>
+                </div>
+              </article>
+            </li>
+            <li class="lastNewsItem">
+              <article>
+                <figure>
+                  {{ apos.singleton(data.page, 'newsImage2', 'apostrophe-images') }}
+                </figure>
+                <div class="newsContentZone">
+                  <h2 class="newsTitle">News numero 1</h2>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen ...</p>
+
+                  <div class="newsAbout">
+                    <span class="newsDate">20 Juillet 2018</span> at <span class="newsHour">17h42 </span> by <span class="newsAuthor">Admin</span>
+                  </div>
+                </div>
+              </article>              
+            </li>
+            <li class="lastNewsItem">
+              <article>
+                <figure>
+                  {{ apos.singleton(data.page, 'newsImage3', 'apostrophe-images') }}
+                </figure>
+                <div class="newsContentZone">
+                  <h2 class="newsTitle">News numero 1</h2>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen ...</p>
+
+                  <div class="newsAbout">
+                    <span class="newsDate">20 Juillet 2018</span> at <span class="newsHour">17h42 </span> by <span class="newsAuthor">Admin</span>
+                  </div>
+                </div>
+              </article>              
+            </li>
+            <li class="lastNewsItem">
+              <article>
+                <figure>
+                  {{ apos.singleton(data.page, 'newsImage4', 'apostrophe-images') }}
+                </figure>
+                <div class="newsContentZone">
+                  <h2 class="newsTitle">News numero 1</h2>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen ...</p>
+
+                  <div class="newsAbout">
+                    <span class="newsDate">20 Juillet 2018</span> at <span class="newsHour">17h42 </span> by <span class="newsAuthor">Admin</span>
+                  </div>
+                </div>
+              </article>              
+            </li>
+            <li class="lastNewsItem">
+              <article>
+                <figure>
+                  {{ apos.singleton(data.page, 'newsImage5', 'apostrophe-images') }}
+                </figure>
+                <div class="newsContentZone">
+                  <h2 class="newsTitle">News numero 1</h2>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen ...</p>
+
+                  <div class="newsAbout">
+                    <span class="newsDate">20 Juillet 2018</span> at <span class="newsHour">17h42 </span> by <span class="newsAuthor">Admin</span>
+                  </div>
+                </div>
+              </article>              
+            </li>
+            <li class="lastNewsItem">
+              <article>
+                <figure>
+                  {{ apos.singleton(data.page, 'newsImage6', 'apostrophe-images') }}
+                </figure>
+                <div class="newsContentZone">
+                  <h2 class="newsTitle">News numero 1</h2>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen ...</p>
+
+                  <div class="newsAbout">
+                    <span class="newsDate">20 Juillet 2018</span> at <span class="newsHour">17h42 </span> by <span class="newsAuthor">Admin</span>
+                  </div>
+                </div>
+              </article>              
+            </li>                        
+          </ul>
+        </div>
+      </div>
+      <div class="rightZone">
+        {{ apos.area(data.page, 'Recrutement', {
+          widgets: {
+            'recrutement': {}
+          }
+        }) }}
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block afterMain %}
+    <footer class="mainFooter">
+      <div class="container">
+        <p class="copyright">&copy; 2018, Increasing Guilde, All right reserved</p>
+      </div>  
+    </footer>
+{% endblock %}

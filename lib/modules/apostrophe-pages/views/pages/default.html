@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block extraHead %}
+  <link rel="stylesheet" type="text/css" href="">
+{% endblock %}
+
+{% block beforeMain %}
+  <header id="header" class="mainHeader">
+    <div class="container">
+      <div class="headerTop">
+        {% if not data.user %}
+          <a class="login-link" href="/login">Login</a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="container">
+      <div class="logoZone">
+        <div class="logo">
+          {{ apos.singleton(data.page, 'headerLogo', 'apostrophe-images', {
+            size: 'full',
+            limit: 1,
+            addLabel: 'Set the logo',
+            editLabel: 'Change the logo',
+            controls: {
+              movable: false,
+              removable: false
+            }
+          }) }}
+        </div>
+      </div>
+
+      <nav>
+        <ul class="tabs">
+              <li><a href="{{ data.home._url }}">{{ data.home.title }}</a></li>
+            {% for tab in data.home._children %}
+              <li class="
+                {% if data.page and
+                  (apos.pages.isAncestorOf(tab, data.page) or tab._id == data.page._id)
+                %}
+                  current
+                {% endif %}
+              "><a href="{{ tab._url }}">{{ tab.title }}</a></li>
+            {% endfor %}
+          </ul>
+      </nav>
+      
+    </div>
+  </header><!-- /header -->
+{% endblock %}
+
+{% block main %}
+  <main>
+    <div class="container mainZone">
+      <div class="leftZone">
+        <p>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.      
+        </p>
+      </div>
+      <div class="rightZone">
+        <p>sidebar</p>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block afterMain %}
+    <footer class="mainFooter">
+      <div class="container">
+        <p class="copyright">&copy; 2018, Increasing Guilde, All right reserved</p>
+      </div>  
+    </footer>
+{% endblock %}
+
